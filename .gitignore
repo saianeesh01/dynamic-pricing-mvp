@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+*.db
+backend_log.txt
+error_log.txt
+
+# Node
+node_modules/
+dist/
+tmp/
+ng_log.txt
+ng_log_2.txt
+
+# IDE
+.idea/
+.vscode/
+*.swp

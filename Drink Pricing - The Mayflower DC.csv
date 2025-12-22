@@ -1,0 +1,78 @@
+Name,Type of Liquor,Price
+Absolut,Vodka,$325
+Ketel One,Vodka,$350
+Tito's,Vodka,$350
+Ciroc & Flavors,Vodka,$350
+Belvedere,Vodka,$375
+Grey Goose,Vodka,$375
+Belvedere 10,Vodka,$700
+Bombay Sapphire,Gin,$325
+Tanqueray,Gin,$325
+Hendrick's,Gin,$350
+Bacardi,Rum,$300
+Captain Morgan,Rum,$325
+Ron Zaccapa 23,Rum,$375
+Avion Silver,Tequila,$375
+Avion Reposado,Tequila,$400
+Del Maguey Vida Mezcal,Tequila,$400
+Don Julio Blanco,Tequila,$400
+Don Julio Reposado,Tequila,$425
+Don Julio 1942,Tequila,$900
+Don Julio 1942 Ultima Reserva,Tequila,"$1,700"
+Don Julio 1942 Magnum,Tequila,"$2,100"
+Patron Silver,Tequila,$425
+Patron Reposado,Tequila,$450
+Patron El Cielo ,Tequila,$850
+Patron El Alto,Tequila,$900
+Casamigos Blanco,Tequila,$425
+Casamigos Reposado,Tequila,$450
+Casamigos Anejo,Tequila,$500
+Casamigos Cristalino,Tequila,$525
+Casamigos Joven Mezcal,Tequila,$700
+Clase Azul Plata,Tequila,$800
+Clase Azul Reposado,Tequila,$900
+Clase Azul Gold,Tequila,"$1,500"
+Clase Azul Anejo,Tequila,"$2,000"
+Clase Azul Ultra,Tequila,"$5,000"
+Jefferson's,Whiskey,$300
+Jameson and Flavors,Whiskey,$350
+Jack Daniel's,Whiskey,$350
+Crown Royal and Flavors,Whiskey,$350
+Makers Mark,Whiskey,$375
+Bulleit,Whiskey,$375
+Basil Hayden's,Whiskey,$425
+Woodford Reserve,Whiskey,$450
+Blantons,Whiskey,$625
+Mumm Napa Brut Prestige,Champagne,$150
+Gh Mumm Grand Cordon,Champagne,$200
+Gh Mumm Grand Cordon Rose,Champagne,$250
+Moet & Chandon Imperial,Champagne,$300
+Moet & Chandon Ice,Champagne,$325
+Moet & Chandon Nectar Imperial,Champagne,$350
+Moet & Chandon Nectar Rose ,Champagne,$400
+Perrier Jouet Brut ,Champagne,$300
+Veuve Clicquot Yellow Label,Champagne,$325
+Veuve Clicquot Magnum,Champagne,$700
+Dom Perignon,Champagne,$950
+Dom Perignon Magnum,Champagne,"$2,800"
+Dom Perignon Rose,Champagne,"$1,250"
+Dom Perignon Magnum Rose,Champagne,"$4,000"
+Ace of Spades,Champagne,"$1,200"
+Ace of Spades Rose  ,Champagne,"$1,400"
+Martell Blue Swift,Cognac,$350
+D'USSE,Cognac,$425
+Hennessy VS,Cognac,$450
+Hennessy VSOP,Cognac,$500
+Remy Martin 1738,Cognac,$525
+Remy Martin VSOP,Cognac,$575
+Hennessy XO,Cognac,$850
+Remy Martin XO,Cognac,$875
+Remy Martin Louis XIII,Cognac,"$8,000"
+Chivas Regal,Scotch,$350
+Johnnie Walker Black,Scotch,$375
+Talisker,Scotch,$425
+Glenlivet 12,Scotch,$425
+Oban 14,Scotch,$475
+Glenlivet 18,Scotch,$575
+Macallan ,Scotch,$575
+Johnnie Walker Blue,Scotch,$850

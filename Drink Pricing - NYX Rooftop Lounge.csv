@@ -1,0 +1,47 @@
+Name,Type of Liquor,Price
+Kettle One,Vodka,$300
+Belvedere,Vodka,$325
+Grey Goose,Vodka,$350
+Tito's,Vodka,$350
+Casamigos Blanco,Tequila,$425
+Casamigos Reposado ,Tequila,$450
+Casamigos Añejo,Tequila,$500
+Don Julio Reposado ,Tequila,$475
+Don Julio Blanco,Tequila,$350
+Clase Azul Reposado,Tequila,$900
+Don Julio 1942,Tequila,$850
+Don Julio 1942 Magnum,Tequila,"$1,800"
+Komos Repo Rosa,Tequila,$750
+Komos Anejo Reserva,Tequila,$800
+Komos Anejo Cristalino,Tequila,$800
+Patrón Silver,Tequila,$375
+Patrón Reposado,Tequila,$400
+Patrón Añejo,Tequila,$450
+Bombay Sapphire,Gin,$300
+Hendrick's,Gin,$325
+Tanqueray,Gin,$300
+Hennessy VS,Cognac,$400
+Hennessv VSOP,Cognac,$600
+D'USSÉ VSOP,Cognac,$400
+Rémy Martin VSOP,Cognac,$450
+Rémy Martin 1738,Cognac,$475
+Bacardi,Rum,$300
+Captain Morgan,Rum,$300
+Johnnie Walker Black,Scotch,$375
+Johnnie Walker Blue,Scotch,$750
+Glenlivet 12,Scotch,$400
+Glenlivet 15,Scotch,$500
+Chivas,Scotch,$350
+Bulleit Bourbon,Whiskey & Bourbon,$350
+Bulleit Rye,Whiskey & Bourbon,$350
+Crown Apple,Whiskey & Bourbon,$325
+Crown Royal,Whiskey & Bourbon,$325
+Jack Daniel's,Whiskey & Bourbon,$325
+Jameson,Whiskey & Bourbon,$350
+Maker's Mark,Whiskey & Bourbon,$325
+Ace of Spades,Champagne,"$1,000"
+Belaire,Champagne,$260
+Moët Nectar Impérial Rosé,Champagne,$300
+Moët Ice,Champagne,$275
+Dom Pérignon Luminous,Champagne,$700
+House Champagne,Champagne,$100

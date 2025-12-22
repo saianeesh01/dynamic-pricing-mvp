@@ -1,102 +1,128 @@
-<div class="min-h-screen bg-slate-900 text-slate-100 p-8 font-sans">
-  <!-- Header -->
-  <header class="mb-12 flex justify-between items-center">
-    <div>
-      <h1 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-        Dynamic Pricing AI
-      </h1>
-      <p class="text-slate-400 mt-2">Real-time demand optimization engine</p>
-    </div>
-    <div class="flex gap-4">
-        <button (click)="refreshData()" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition border border-slate-700">
-            Refresh Data
+<app-aurora-background>
+  <div class="min-h-screen p-8 font-sans transition-colors duration-500">
+    <!-- Header -->
+    <header class="mb-12 flex justify-between items-center relative z-20">
+      <div>
+        <h1
+          class="text-5xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 animate-pulse">
+          Dynamic Pricing AI
+        </h1>
+        <p class="text-slate-300 mt-2 text-lg tracking-wide font-light">
+          Real-time demand optimization engine
+        </p>
+      </div>
+      <div class="flex gap-4">
+        <button (click)="refreshData()"
+          class="px-6 py-3 rounded-full bg-slate-800/80 hover:bg-slate-700/80 transition-all border border-slate-600 backdrop-blur-md hover:scale-105 active:scale-95 shadow-lg shadow-cyan-500/10 text-cyan-300 font-bold tracking-wider">
+          REFRESH DATA
         </button>
-    </div>
-  </header>
+      </div>
+    </header>
 
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-    <!-- Main Content: Products -->
-    <div class="lg:col-span-2 space-y-6">
-      <h2 class="text-2xl font-bold flex items-center gap-2">
-        <span class="w-1 h-8 bg-blue-500 rounded-full block"></span>
-        Live Inventory & Pricing
-      </h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" *ngIf="products$ | async as products; else loading">
-        <div *ngFor="let product of products" 
-             class="group relative bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 hover:bg-slate-800/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/10">
-          
-          <div class="flex justify-between items-start mb-4">
-            <div>
-              <h3 class="text-xl font-bold text-slate-100">{{ product.name }}</h3>
-              <p class="text-sm text-slate-400">ID: {{ product.id }}</p>
-            </div>
-            <div class="text-right">
-                <span class="text-xs font-medium text-slate-500 uppercase tracking-wider">Inventory</span>
-                <p class="text-xl font-mono" [ngClass]="{'text-red-400': product.inventory_count < 10, 'text-green-400': product.inventory_count >= 10}">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-20">
+      <!-- Main Content: Products -->
+      <div class="lg:col-span-2 space-y-6">
+        <h2 class="text-2xl font-bold flex items-center gap-2 text-cyan-50">
+          <span class="w-1.5 h-8 bg-cyan-400 rounded-full block shadow-[0_0_15px_rgba(34,211,238,0.5)]"></span>
+          LIVE INVENTORY
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" [@staggerFade]="(products$ | async)?.length"
+          *ngIf="products$ | async as products; else loading">
+          <app-spotlight-card *ngFor="let product of products" class="block h-full">
+            <div class="p-6 h-full flex flex-col justify-between relative z-10">
+              <div class="flex justify-between items-start mb-4">
+                <div>
+                  <h3 class="text-2xl font-bold text-slate-100 tracking-tight">{{ product.name }}</h3>
+                  <p class="text-xs text-slate-400 mt-1 uppercase tracking-widest opacity-60">ID: {{ product.id }}</p>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Inventory</span>
+                  <p class="text-2xl font-mono"
+                    [ngClass]="{'text-red-400 drop-shadow-[0_0_8px_rgba(248,113,113,0.5)]': product.inventory_count < 10, 'text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.5)]': product.inventory_count >= 10}">
                     {{ product.inventory_count }}
-                </p>
-            </div>
-          </div>
+                  </p>
+                </div>
+              </div>
 
-          <div class="mt-4 flex items-end justify-between">
-            <div>
-                <span class="text-xs font-medium text-slate-500 uppercase tracking-wider">Current Price</span>
-                <p class="text-3xl font-bold text-white tracking-tight">
+              <div class="mt-4 flex items-end justify-between">
+                <div>
+                  <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Pricing</span>
+                  <p class="text-4xl font-black text-white tracking-tight drop-shadow-lg">
                     ${{ product.current_price.toFixed(2) }}
-                </p>
-                <div *ngIf="product.current_price !== product.base_price" class="text-sm text-green-400 flex items-center gap-1 mt-1">
-                    <span *ngIf="product.current_price > product.base_price">▲</span>
-                    <span *ngIf="product.current_price < product.base_price">▼</span>
-                    {{ ((product.current_price - product.base_price) / product.base_price * 100).toFixed(0) }}% from base
+                  </p>
+                  <div *ngIf="product.current_price !== product.base_price"
+                    class="text-sm font-medium text-cyan-400 flex flex-col gap-1 mt-1">
+                    <div class="flex items-center gap-1 animate-bounce">
+                      <span *ngIf="product.current_price > product.base_price">▲</span>
+                      <span *ngIf="product.current_price < product.base_price">▼</span>
+                      {{ (((product.current_price - product.base_price) / product.base_price) * 100).toFixed(0) }}%
+                      surge
+                    </div>
+                    <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">{{ product.reason ||
+                      'AI Optimized' }}</span>
+                  </div>
                 </div>
+
+                <button (click)="simulateDemand(product)"
+                  class="px-5 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold shadow-lg shadow-indigo-500/40 active:scale-95 transition-all outline-none ring-2 ring-transparent focus:ring-indigo-400/50">
+                  BOOST DEMAND
+                </button>
+              </div>
             </div>
-            
-            <button (click)="simulateDemand(product)" 
-                    class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium shadow-lg shadow-blue-500/25 active:scale-95 transition-all">
-                Simulate Demand
-            </button>
+          </app-spotlight-card>
+        </div>
+
+        <ng-template #loading>
+          <div class="flex items-center justify-center py-20">
+            <div
+              class="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-cyan-500 shadow-[0_0_30px_rgba(6,182,212,0.6)]">
+            </div>
           </div>
-          
-          <!-- Decorative gradient blob -->
-          <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl opacity-0 group-hover:opacity-20 transition duration-500 blur -z-10"></div>
-        </div>
+        </ng-template>
       </div>
-      
-      <ng-template #loading>
-        <div class="flex items-center justify-center py-20">
-            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-500"></div>
-        </div>
-      </ng-template>
-    </div>
 
-    <!-- Sidebar: Rules & Stats -->
-    <div class="space-y-8">
-      <!-- Active Rules -->
-      <div class="bg-slate-800/30 backdrop-blur-md border border-slate-700/50 rounded-2xl p-6">
-        <h3 class="text-lg font-bold mb-4 text-slate-200">Active Pricing Rules</h3>
-        <div class="space-y-3" *ngIf="rules$ | async as rules">
-            <div *ngFor="let rule of rules" class="flex items-center justify-between p-3 rounded-lg bg-slate-800/80 border border-slate-700/50">
-                <div class="flex items-center gap-3">
-                    <div class="w-2 h-2 rounded-full" [ngClass]="{'bg-green-500': rule.is_active, 'bg-gray-500': !rule.is_active}"></div>
-                    <span class="text-sm font-medium text-slate-300">{{ rule.name }}</span>
+      <!-- Sidebar: Rules & Stats -->
+      <div class="space-y-8">
+        <!-- Active Rules -->
+        <div class="bg-slate-900/40 backdrop-blur-xl border border-slate-800/50 rounded-3xl p-6 shadow-2xl">
+          <h3 class="text-lg font-bold mb-6 text-slate-200 tracking-wide border-b border-slate-800 pb-2">ACTIVE RULES
+          </h3>
+          <div class="space-y-4" *ngIf="rules$ | async as rules">
+            <div *ngFor="let rule of rules"
+              class="group flex items-center justify-between p-4 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/30 transition-all hover:bg-slate-800/80">
+              <div class="flex items-center gap-4">
+                <div class="relative">
+                  <div class="w-3 h-3 rounded-full"
+                    [ngClass]="{'bg-emerald-500 shadow-[0_0_10px_#10b981]': rule.is_active, 'bg-gray-600': !rule.is_active}">
+                  </div>
+                  <div class="absolute inset-0 rounded-full animate-ping opacity-75"
+                    [ngClass]="{'bg-emerald-500': rule.is_active}" *ngIf="rule.is_active"></div>
                 </div>
-                <div class="text-xs px-2 py-1 rounded bg-slate-700 text-slate-300 font-mono">
-                    x{{ rule.adjustment_factor }}
-                </div>
+                <span class="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">{{ rule.name
+                  }}</span>
+              </div>
+              <div class="text-xs px-2.5 py-1 rounded-md bg-slate-800 text-cyan-400 font-mono border border-slate-700">
+                x{{ rule.adjustment_factor }}
+              </div>
             </div>
+          </div>
         </div>
-      </div>
 
-      <!-- Quick Stats / MVP Placeholder -->
-      <div class="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 border border-indigo-500/20 rounded-2xl p-6">
-        <h3 class="text-lg font-bold mb-2 text-indigo-100">System Status</h3>
-        <div class="space-y-2 text-sm text-indigo-200/80">
-            <p>● Engine Online</p>
-            <p>● Model: Rule-Based v1.0</p>
-            <p>● Latency: < 10ms</p>
+        <!-- Stats -->
+        <div
+          class="bg-gradient-to-br from-indigo-950/80 to-purple-950/80 border border-indigo-500/20 rounded-3xl p-8 relative overflow-hidden group">
+          <div
+            class="absolute -right-10 -top-10 w-32 h-32 bg-purple-600/30 rounded-full blur-[50px] group-hover:bg-purple-500/40 transition duration-500">
+          </div>
+          <h3 class="text-xl font-black mb-4 text-indigo-100 tracking-tight z-10 relative">SYSTEM HEALTH</h3>
+          <div class="space-y-3 text-sm font-medium text-indigo-200/80 z-10 relative">
+            <p class="flex items-center gap-2"><span class="text-green-400">●</span> AI Engine: ML On</p>
+            <p class="flex items-center gap-2"><span class="text-cyan-400">●</span> RF Regressor Active</p>
+            <p class="flex items-center gap-2"><span class="text-purple-400">●</span> 12ms Inference</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</app-aurora-background>

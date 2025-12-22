@@ -8,6 +8,8 @@ export interface Product {
     base_price: number;
     current_price: number;
     inventory_count: number;
+    ai_multiplier?: number;
+    reason?: string;
 }
 
 export interface Rule {
@@ -16,6 +18,16 @@ export interface Rule {
     rule_type: string;
     adjustment_factor: number;
     is_active: boolean;
+}
+
+export interface PricingLog {
+    id: number;
+    product_id: number;
+    old_price: number;
+    new_price: number;
+    multiplier: number;
+    reason: string;
+    timestamp: string;
 }
 
 @Injectable({
@@ -31,6 +43,10 @@ export class ApiService {
 
     getRules(): Observable<Rule[]> {
         return this.http.get<Rule[]>(`${this.apiUrl}/rules`);
+    }
+
+    getPricingLogs(): Observable<PricingLog[]> {
+        return this.http.get<PricingLog[]>(`${this.apiUrl}/pricing-logs`);
     }
 
     calculatePrice(productId: number): Observable<Product> {

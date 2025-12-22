@@ -1,0 +1,53 @@
+Name,Type of Liquor,Price
+Titos,Vodka,$300
+Belvedere,Vodka,$300
+Ketel One,Vodka,$300
+Grey Goose,Vodka,$300
+Ciroc + Flavors,Vodka,$325
+Tanqueray,Gin,$250
+Bombay Sapphire,Gin,$275
+Hendricks,Gin,$300
+Bacardi,Rum,$275
+Malibu,Rum,$275
+Captain Morgan,Rum,$300
+Hennessy V.S.,Cognac,$425
+D'ussé V.S.O.P.,Cognac,$425
+Remy Martin 1738,Cognac,$450
+Hennessy V.S.O.P. Privilege,Cognac,$600
+Chivas Regal,Scotch,$300
+Johnnie Walker Black,Scotch,$350
+Johnnie Walker Blue,Scotch,$750
+Baileys,Cordials,$250
+Fireball,Cordials,$275
+Jagermeister,Cordials,$275
+Belaire Brut,Champagne,$200
+Belaire Rose,Champagne,$200
+Belaire Bleu,Champagne,$200
+Moet & Chandon Ice,Champagne,$275
+Moet & Chandon Ice Rose,Champagne,$300
+Moet & Chandon Nectar Rose,Champagne,$300
+Veuve Clicquot Yellow Label Magnum ,Champagne,$550
+Moet & Chandon Nectar Rose Magnum,Champagne,$750
+Dom Perignon,Champagne,$750
+Ace of Spades,Champagne,"$1,000"
+Dom Perignon Rose,Champagne,"$1,400"
+Ace of Spades Rose,Champagne,"$1,500"
+Dom Perignon Magnum,Champagne,"$2,200"
+Ace of Spades Magnum,Champagne,"$2,700"
+Jose Cuervo Gold,Tequila,$250
+Don Julio Blanco,Tequila,$325
+Patron Reposado,Tequila,$350
+"Casamigos Blanco
+",Tequila,$425
+Casamigos Reposado,Tequila,$450
+818 Reposado,Tequila,$450
+Cincoro Blanco,Tequila,$725
+Cincoro Reposado,Tequila,$750
+Clase Azul,Tequila,$800
+Don Julio 1942,Tequila,"$1,000"
+Don Julio Magnum,Tequila,"$2,500"
+Southern Comfort,Whiskey,$250
+Crown Royal Crown Apple Available,Whiskey,$300
+Jack Daniels Jack Honey Available,Whiskey,$300
+Bulliet Bourbon,Whiskey,$300
+Jameson,Whiskey,$325

@@ -150,7 +150,7 @@ async function loadRecommendations() {
     
     const tbody = document.getElementById('recommendationsBody');
     if (tbody) {
-        tbody.innerHTML = '<tr><td colspan="9" class="loading">Loading recommendations...</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="10" class="loading">Loading recommendations...</td></tr>';
     }
     
     try {
@@ -171,7 +171,7 @@ async function loadRecommendations() {
         
         if (!recommendations || recommendations.length === 0) {
             if (tbody) {
-                tbody.innerHTML = '<tr><td colspan="9" class="loading">No recommendations found</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="10" class="loading">No recommendations found</td></tr>';
             }
             return;
         }
@@ -180,7 +180,7 @@ async function loadRecommendations() {
     } catch (error) {
         console.error('Error loading recommendations:', error);
         if (tbody) {
-            tbody.innerHTML = `<tr><td colspan="9" class="loading">Error: ${error.message}</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="10" class="loading">Error: ${error.message}</td></tr>`;
         }
     }
 }
@@ -190,7 +190,7 @@ function renderRecommendations() {
     const tbody = document.getElementById('recommendationsBody');
     
     if (recommendations.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="9" class="loading">No recommendations found</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="10" class="loading">No recommendations found</td></tr>';
         return;
     }
     
@@ -198,6 +198,13 @@ function renderRecommendations() {
         const deltaClass = rec.delta_pct > 0 ? 'badge-success' : rec.delta_pct < 0 ? 'badge-danger' : 'badge-info';
         const methodBadge = rec.phase === 2 ? 'badge-success' : 'badge-info';
         const methodText = rec.phase === 2 ? 'Phase 2 (AI)' : 'Phase 1 (Market)';
+        
+        // Profit margin display
+        const profitMargin = rec.profit_margin_pct;
+        const profitBadgeClass = profitMargin && profitMargin >= 30 ? 'badge-success' : profitMargin && profitMargin >= 0 ? 'badge-warning' : 'badge-danger';
+        const profitMarginDisplay = profitMargin !== undefined && profitMargin !== null ? 
+            `<span class="badge ${profitBadgeClass}">${profitMargin.toFixed(1)}%</span>` : 
+            '<span class="badge badge-info">N/A</span>';
         
         return `
             <tr>
@@ -207,7 +214,10 @@ function renderRecommendations() {
                 <td>$${rec.current_price.toFixed(2)}</td>
                 <td><strong>$${rec.recommended_price.toFixed(2)}</strong></td>
                 <td><span class="badge ${deltaClass}">${rec.delta_pct > 0 ? '+' : ''}${rec.delta_pct.toFixed(1)}%</span></td>
-                <td>${rec.revenue_improvement ? `$${rec.revenue_improvement.toFixed(2)}` : 'N/A'}</td>
+                <td>${profitMarginDisplay}</td>
+                <td>${rec.revenue_improvement !== undefined && rec.revenue_improvement !== null ? 
+                    `<span class="${rec.revenue_improvement >= 0 ? 'text-success' : 'text-warning'}">$${rec.revenue_improvement.toFixed(2)}</span>` : 
+                    'N/A'}</td>
                 <td><span class="badge ${methodBadge}">${methodText}</span></td>
                 <td>
                     <button class="btn-secondary" onclick="viewDetails('${rec.venue}', '${rec.bottle}')" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;">Details</button>
@@ -393,7 +403,7 @@ function renderDemandChart(predictions) {
     if (!ctx) return;
     
     // Destroy existing chart if it exists
-    if (window.demandChart) {
+    if (window.demandChart && typeof window.demandChart.destroy === 'function') {
         window.demandChart.destroy();
     }
     
@@ -498,18 +508,26 @@ function exportRecommendations() {
         return;
     }
     
+    // Match the table column order exactly
     const csv = [
-        ['Venue', 'Bottle', 'Type', 'Current Price', 'Recommended Price', 'Change %', 'Revenue Impact', 'Method'].join(','),
-        ...recommendations.map(r => [
-            r.venue,
-            r.bottle,
-            r.type,
-            r.current_price,
-            r.recommended_price,
-            r.delta_pct,
-            r.revenue_improvement || 'N/A',
-            r.phase === 2 ? 'Phase 2' : 'Phase 1'
-        ].join(','))
+        ['Venue', 'Bottle', 'Type', 'Current Price', 'Recommended Price', 'Change %', 'Profit Margin', 'Revenue Impact', 'Method'].join(','),
+        ...recommendations.map(r => {
+            const profitMargin = r.profit_margin_pct !== undefined && r.profit_margin_pct !== null ? r.profit_margin_pct.toFixed(1) + '%' : 'N/A';
+            const revenueImpact = r.revenue_improvement !== undefined && r.revenue_improvement !== null ? r.revenue_improvement.toFixed(2) : 'N/A';
+            const method = r.phase === 2 ? 'Phase 2 (AI)' : 'Phase 1 (Market)';
+            
+            return [
+                r.venue,
+                r.bottle,
+                r.type,
+                '$' + r.current_price.toFixed(2),
+                '$' + r.recommended_price.toFixed(2),
+                (r.delta_pct > 0 ? '+' : '') + r.delta_pct.toFixed(1) + '%',
+                profitMargin,
+                '$' + revenueImpact,
+                method
+            ].join(',');
+        })
     ].join('\n');
     
     const blob = new Blob([csv], { type: 'text/csv' });
@@ -524,7 +542,26 @@ function exportRecommendations() {
 function viewDetails(venue, bottle) {
     const rec = recommendations.find(r => r.venue === venue && r.bottle === bottle);
     if (rec) {
-        alert(`Details for ${bottle} at ${venue}\n\nCurrent: $${rec.current_price}\nRecommended: $${rec.recommended_price}\nChange: ${rec.delta_pct}%\nReason: ${rec.reason}`);
+        let details = `Details for ${bottle} at ${venue}\n\n`;
+        details += `Current Price: $${rec.current_price.toFixed(2)}\n`;
+        details += `Recommended Price: $${rec.recommended_price.toFixed(2)}\n`;
+        details += `Change: ${rec.delta_pct > 0 ? '+' : ''}${rec.delta_pct.toFixed(1)}%\n\n`;
+        
+        if (rec.cost !== undefined && rec.cost !== null) {
+            details += `PROFIT ANALYSIS:\n`;
+            details += `Cost: $${rec.cost.toFixed(2)}\n`;
+            details += `Profit per Bottle: $${rec.profit.toFixed(2)}\n`;
+            details += `Profit Margin: ${rec.profit_margin_pct.toFixed(1)}%\n`;
+            details += `Status: ${rec.profit_margin_pct >= 30 ? 'PROFITABLE ✓' : rec.profit_margin_pct >= 0 ? 'Positive margin' : 'Negative margin'}\n\n`;
+        }
+        
+        if (rec.revenue_improvement !== undefined && rec.revenue_improvement !== null) {
+            details += `Revenue Impact: $${rec.revenue_improvement.toFixed(2)}\n`;
+            details += `(Based on demand model prediction)\n\n`;
+        }
+        
+        details += `Reason: ${rec.reason}`;
+        alert(details);
     }
 }
 

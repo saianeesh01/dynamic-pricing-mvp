@@ -10,6 +10,12 @@ import re
 from typing import Dict, List, Tuple, Optional
 from collections import defaultdict
 
+try:
+    from cost_manager import CostManager
+    COST_MANAGER_AVAILABLE = True
+except ImportError:
+    COST_MANAGER_AVAILABLE = False
+
 
 class PricingEngine:
     """
@@ -19,12 +25,13 @@ class PricingEngine:
     3. Brand Premium Score (BPS)
     """
     
-    def __init__(self, csv_dir: str = "."):
+    def __init__(self, csv_dir: str = ".", cost_manager=None):
         """
         Initialize the pricing engine.
         
         Args:
             csv_dir: Directory containing venue CSV files
+            cost_manager: Optional CostManager instance for profit-aware pricing
         """
         self.csv_dir = Path(csv_dir)
         self.df = None
@@ -33,6 +40,7 @@ class PricingEngine:
         self.brand_medians = {}  # Median price per brand across all venues
         self.type_medians = {}  # Median price per alcohol type
         self.brand_bps = {}  # Brand Premium Score per brand within type
+        self.cost_manager = cost_manager  # Cost manager for profit constraints
         
     def load_data(self) -> pd.DataFrame:
         """
@@ -211,6 +219,18 @@ class PricingEngine:
         max_price = current_price * (1 + max_change_pct)
         min_price = current_price * (1 - max_change_pct)
         
+        # Cost-aware constraint: ensure minimum profit margin
+        cost = None
+        min_profit_price = None
+        if self.cost_manager:
+            try:
+                cost = self.cost_manager.get_cost(bottle, bottle_type, current_price)
+                min_profit_price = self.cost_manager.get_minimum_price(cost)
+                # Update min_price to be at least the minimum profitable price
+                min_price = max(min_price, min_profit_price)
+            except Exception as e:
+                print(f"Warning: Could not get cost for {bottle}: {e}")
+        
         # Clamp target price to guardrails
         recommended_price = max(min_price, min(max_price, target_price))
         
@@ -224,16 +244,50 @@ class PricingEngine:
         # Ensure it's at least $25
         recommended_price = max(25, recommended_price)
         
+        # Final cost check: ensure we're still profitable after rounding
+        if self.cost_manager and cost is not None:
+            if not self.cost_manager.is_profitable(recommended_price, cost):
+                # Round up to nearest rounding_base to ensure profitability
+                min_profit_price_rounded = round(min_profit_price / rounding_base) * rounding_base
+                if min_profit_price_rounded < min_profit_price:
+                    min_profit_price_rounded += rounding_base
+                recommended_price = max(recommended_price, min_profit_price_rounded)
+        
         # Calculate delta
         delta_pct = ((recommended_price - current_price) / current_price) * 100
+        
+        # Calculate profit metrics if cost manager available
+        profit_data = {}
+        reason_suffix = ""
+        if self.cost_manager and cost is not None:
+            profit = self.cost_manager.calculate_profit(recommended_price, cost)
+            profit_margin = self.cost_manager.calculate_profit_margin(recommended_price, cost)
+            current_profit = self.cost_manager.calculate_profit(current_price, cost)
+            current_profit_margin = self.cost_manager.calculate_profit_margin(current_price, cost)
+            
+            profit_data = {
+                'cost': round(cost, 2),
+                'profit': round(profit, 2),
+                'profit_margin_pct': round(profit_margin, 1),
+                'current_profit': round(current_profit, 2),
+                'current_profit_margin_pct': round(current_profit_margin, 1),
+                'profit_change': round(profit - current_profit, 2),
+                'min_profit_price': round(min_profit_price, 2) if min_profit_price else None
+            }
+            
+            # Add profit info to reason
+            if profit_margin < self.cost_manager.min_profit_margin_pct * 100:
+                reason_suffix = f" (Note: Price adjusted to maintain {self.cost_manager.min_profit_margin_pct*100:.0f}% minimum profit margin)"
+            else:
+                reason_suffix = f" (Profit margin: {profit_margin:.1f}%)"
         
         # Generate explanation
         reason = self._generate_reason(
             venue, bottle, bottle_type, current_price, recommended_price,
             market_price, vpi
-        )
+        ) + reason_suffix
         
-        return {
+        result = {
             'venue': venue,
             'bottle': bottle,
             'type': bottle_type,
@@ -247,6 +301,11 @@ class PricingEngine:
             'min_price': round(min_price, 2),
             'max_price': round(max_price, 2)
         }
+        
+        # Add profit data if available
+        result.update(profit_data)
+        
+        return result
     
     def _generate_reason(
         self,

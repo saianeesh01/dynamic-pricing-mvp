@@ -14,7 +14,8 @@ import json
 
 from pricing_engine import PricingEngine
 from pricing_engine_v2 import HybridPricingEngine
-from demand_engine import DemandPredictionModel
+from demand_engine import DemandPredictionModel, PriceOptimizer
+from cost_manager import CostManager
 
 
 def convert_numpy_types(obj):
@@ -55,8 +56,28 @@ CORS(app)
 BASE_DIR = Path(__file__).parent
 CSV_DIR = BASE_DIR.parent
 
+# Load Cost Manager (Phase 4: Profit Optimization)
+cost_config_path = BASE_DIR / 'data' / 'cost_config.json'
+cost_manager = None
+if cost_config_path.exists():
+    try:
+        cost_manager = CostManager(cost_config_path=str(cost_config_path))
+        print("Cost Manager loaded - Profit-aware pricing active!")
+    except Exception as e:
+        print(f"Warning: Could not load Cost Manager: {e}")
+        print("Pricing will continue without profit constraints.")
+else:
+    print("Cost config not found. Generating default cost estimates...")
+    try:
+        from generate_cost_config import generate_cost_config
+        generate_cost_config(csv_dir=str(CSV_DIR), output_path=str(cost_config_path))
+        cost_manager = CostManager(cost_config_path=str(cost_config_path))
+        print("Cost Manager initialized with default estimates.")
+    except Exception as e:
+        print(f"Warning: Could not generate cost config: {e}")
+
 # Phase 1 engine (always available)
-phase1_engine = PricingEngine(csv_dir=str(CSV_DIR))
+phase1_engine = PricingEngine(csv_dir=str(CSV_DIR), cost_manager=cost_manager)
 phase1_engine.load_data()
 phase1_engine.compute_benchmarks()
 phase1_engine.compute_vpi()
@@ -71,16 +92,24 @@ if model_path.exists():
     try:
         demand_model = DemandPredictionModel()
         demand_model.load(str(model_path))
+        
+        # Create PriceOptimizer with cost_manager for profit optimization
+        price_optimizer = PriceOptimizer(demand_model, cost_manager=cost_manager)
+        
         phase2_engine = HybridPricingEngine(
             csv_dir=str(CSV_DIR),
             demand_model=demand_model,
-            use_demand_optimization=True
+            use_demand_optimization=True,
+            cost_manager=cost_manager
         )
         phase2_engine.load_data()
         phase2_engine.compute_benchmarks()
         phase2_engine.compute_vpi()
         phase2_available = True
-        print("Phase 2 engine loaded successfully - AI-powered demand optimization active!")
+        if cost_manager:
+            print("Phase 2 + Phase 4 engine loaded - AI-powered demand & profit optimization active!")
+        else:
+            print("Phase 2 engine loaded successfully - AI-powered demand optimization active!")
     except Exception as e:
         print(f"Warning: Could not load Phase 2 engine: {e}")
         import traceback
@@ -92,6 +121,11 @@ else:
 def index():
     """Main dashboard page"""
     return render_template('index.html')
+
+@app.route('/favicon.ico')
+def favicon():
+    """Serve favicon - return 204 No Content to suppress 404 errors"""
+    return '', 204
 
 @app.route('/api/venues')
 def get_venues():

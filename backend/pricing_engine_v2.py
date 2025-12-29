@@ -14,7 +14,13 @@ from pathlib import Path
 
 from pricing_engine import PricingEngine
 from demand_engine import DemandPredictionModel, PriceOptimizer
-from demand_engine import DemandPredictionModel, PriceOptimizer
+
+try:
+    from cost_manager import CostManager
+    COST_MANAGER_AVAILABLE = True
+except ImportError:
+    COST_MANAGER_AVAILABLE = False
+    CostManager = None
 
 
 class HybridPricingEngine(PricingEngine):
@@ -31,7 +37,8 @@ class HybridPricingEngine(PricingEngine):
         self,
         csv_dir: str = ".",
         demand_model: Optional[DemandPredictionModel] = None,
-        use_demand_optimization: bool = True
+        use_demand_optimization: bool = True,
+        cost_manager = None
     ):
         """
         Initialize hybrid pricing engine.
@@ -40,10 +47,11 @@ class HybridPricingEngine(PricingEngine):
             csv_dir: Directory containing venue CSV files
             demand_model: Trained demand prediction model (optional)
             use_demand_optimization: Whether to use demand-based optimization when available
+            cost_manager: Optional CostManager for profit-aware pricing
         """
-        super().__init__(csv_dir)
+        super().__init__(csv_dir, cost_manager=cost_manager)
         self.demand_model = demand_model
-        self.price_optimizer = PriceOptimizer(demand_model) if demand_model else None
+        self.price_optimizer = PriceOptimizer(demand_model, cost_manager=cost_manager) if demand_model else None
         self.use_demand_optimization = use_demand_optimization
     
     def recommend_price_v2(

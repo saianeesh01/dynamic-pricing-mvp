@@ -340,3 +340,4 @@ This MVP Dynamic Pricing Engine uses:
 
 **Next Steps (Phase 2)**: Add demand signals (sales, inventory, events) for true dynamic pricing.
 """)
+

@@ -9,3 +9,4 @@ joblib
 numpy
 streamlit
 plotly
+xgboost

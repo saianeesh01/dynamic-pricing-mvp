@@ -84,3 +84,4 @@ Then implement:
 - Price optimization to maximize revenue
 
 See `backend/README_PRICING_ENGINE.md` for full details.
+

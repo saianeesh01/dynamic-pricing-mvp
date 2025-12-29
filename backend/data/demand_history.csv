@@ -1,0 +1,177 @@
+date,venue,bottle,type,price,bottles_sold,day_of_week,hour,is_weekend,is_holiday,event_type,inventory_level,month,revenue
+2025-07-15,The Mayflower DC,Dom Perignon Rose,Champagne,1345.3,3,1,20,0,1,holiday,0.92,7,4035.9
+2025-08-01,The Mayflower DC,Gh Mumm Grand Cordon Rose,Champagne,283.96,115,4,20,1,0,concert,0.13,8,32655.89
+2025-08-27,NYX Rooftop Lounge,Komos Anejo Cristalino,Tequila,816.6,6,2,0,0,0,regular,0.94,8,4899.61
+2025-07-22,The Mayflower DC,Martell Blue Swift,Cognac,355.48,22,1,22,0,0,regular,0.14,7,7820.65
+2025-08-23,The Mayflower DC,Casamigos Blanco,Tequila,457.77,48,5,2,1,0,regular,0.46,8,21972.81
+2025-10-19,NYX Rooftop Lounge,Tanqueray,Gin,266.96,34,6,0,1,0,regular,0.47,10,9076.57
+2025-11-11,The Mayflower DC,Dom Perignon Rose,Champagne,1401.92,2,1,0,0,0,regular,0.22,11,2803.84
+2025-08-16,The Mayflower DC,Macallan ,Scotch,521.92,32,5,1,1,1,holiday,0.23,8,16701.35
+2025-11-15,The Mayflower DC,Casamigos Cristalino,Tequila,533.11,29,5,2,1,0,regular,0.21,11,15460.27
+2025-11-20,The Mayflower DC,Basil Hayden's,Whiskey,371.98,17,3,22,0,0,regular,0.46,11,6323.74
+2025-09-12,The Mayflower DC,Johnnie Walker Black,Scotch,386.9,51,4,2,1,0,regular,0.45,9,19731.99
+2025-12-04,The Mayflower DC,Veuve Clicquot Magnum,Champagne,656.73,4,3,19,0,0,regular,0.79,12,2626.9
+2025-08-08,The Mayflower DC,Dom Perignon Magnum Rose,Champagne,3880.06,1,4,1,1,0,concert,0.16,8,3880.06
+2025-11-21,Twelve After Twelve,Moet & Chandon Nectar Rose Magnum,Champagne,736.08,11,4,18,1,0,DJ,0.8,11,8096.86
+2025-08-18,Twelve After Twelve,Hendricks,Gin,336.02,52,0,22,0,1,holiday,0.32,8,17472.92
+2025-12-13,Twelve After Twelve,Moet & Chandon Nectar Rose,Champagne,326.29,69,5,2,1,0,regular,0.15,12,22514.08
+2025-09-20,The Mayflower DC,Belvedere 10,Vodka,800.87,13,5,21,1,0,DJ,0.6,9,10411.25
+2025-11-30,NYX Rooftop Lounge,Belvedere,Vodka,342.93,50,6,23,1,0,regular,0.8,11,17146.71
+2025-09-21,The Mayflower DC,Basil Hayden's,Whiskey,398.13,24,6,1,1,0,regular,0.75,9,9555.1
+2025-11-29,Twelve After Twelve,Ace of Spades Magnum,Champagne,2986.19,1,5,20,1,0,regular,0.97,11,2986.19
+2025-09-19,NYX Rooftop Lounge,Jack Daniel's,Whiskey & Bourbon,338.23,45,4,1,1,0,regular,0.82,9,15220.53
+2025-12-17,Twelve After Twelve,Bombay Sapphire,Gin,268.74,38,2,0,0,0,regular,0.9,12,10212.08
+2025-12-12,NYX Rooftop Lounge,Tanqueray,Gin,266.59,90,4,23,1,0,regular,0.4,12,23993.43
+2025-09-19,Twelve After Twelve,Patron Reposado,Tequila,354.67,57,4,23,1,0,DJ,0.53,9,20216.21
+2025-08-26,The Mayflower DC,Captain Morgan,Rum,368.93,27,1,23,0,0,regular,0.4,8,9960.99
+2025-12-01,NYX Rooftop Lounge,Hennessy VS,Cognac,428.93,30,0,0,0,0,concert,0.79,12,12867.98
+2025-09-11,The Mayflower DC,Woodford Reserve,Whiskey,512.87,9,3,19,0,0,regular,0.82,9,4615.79
+2025-07-06,The Mayflower DC,Tito's,Vodka,354.58,36,6,1,1,0,regular,0.62,7,12764.97
+2025-10-25,The Mayflower DC,Ron Zaccapa 23,Rum,385.31,51,5,22,1,0,regular,0.6,10,19651.04
+2025-12-21,Twelve After Twelve,Southern Comfort,Whiskey,244.58,47,6,18,1,0,regular,0.59,12,11495.33
+2025-08-02,NYX Rooftop Lounge,Komos Anejo Cristalino,Tequila,803.42,15,5,23,1,0,regular,0.77,8,12051.3
+2025-11-20,The Mayflower DC,Belvedere,Vodka,326.64,13,3,19,0,0,regular,0.99,11,4246.33
+2025-12-10,The Mayflower DC,D'USSE,Cognac,394.97,17,2,23,0,0,regular,0.43,12,6714.47
+2025-10-11,The Mayflower DC,Tanqueray,Gin,366.55,67,5,19,1,1,holiday,0.54,10,24558.57
+2025-12-02,The Mayflower DC,Don Julio Reposado,Tequila,477.31,16,1,2,0,0,DJ,0.56,12,7636.92
+2025-08-17,Twelve After Twelve,Hendricks,Gin,321.88,49,6,1,1,0,regular,0.79,8,15771.92
+2025-07-20,The Mayflower DC,Belvedere,Vodka,416.0,40,6,2,1,0,regular,0.92,7,16640.18
+2025-09-09,Twelve After Twelve,Hennessy V.S.,Cognac,421.33,16,1,21,0,0,DJ,0.17,9,6741.21
+2025-11-10,NYX Rooftop Lounge,Tanqueray,Gin,337.69,22,0,1,0,0,regular,0.52,11,7429.13
+2025-11-09,The Mayflower DC,Casamigos Reposado,Tequila,400.78,23,6,21,1,0,regular,0.84,11,9217.99
+2025-10-21,Twelve After Twelve,Clase Azul,Tequila,866.04,5,1,2,0,0,concert,0.31,10,4330.2
+2025-12-17,NYX Rooftop Lounge,Patrón Añejo,Tequila,454.55,14,2,2,0,0,DJ,0.97,12,6363.7
+2025-10-01,Twelve After Twelve,Bacardi,Rum,289.83,27,2,1,0,0,regular,0.77,10,7825.42
+2025-11-25,The Mayflower DC,Woodford Reserve,Whiskey,488.8,13,1,0,0,0,regular,0.77,11,6354.42
+2025-06-28,The Mayflower DC,Avion Silver,Tequila,393.94,50,5,1,1,0,regular,0.22,6,19697.1
+2025-08-25,NYX Rooftop Lounge,Komos Anejo Reserva,Tequila,907.09,6,0,22,0,0,regular,0.53,8,5442.57
+2025-08-10,NYX Rooftop Lounge,Don Julio Blanco,Tequila,362.55,41,6,22,1,0,regular,0.77,8,14864.45
+2025-08-08,The Mayflower DC,Blantons,Whiskey,671.13,18,4,20,1,0,regular,0.3,8,12080.36
+2025-12-01,The Mayflower DC,Belvedere 10,Vodka,640.31,7,0,0,0,0,regular,0.22,12,4482.16
+2025-07-08,Twelve After Twelve,Bombay Sapphire,Gin,253.53,38,1,22,0,0,DJ,0.89,7,9634.03
+2025-11-28,The Mayflower DC,Jack Daniel's,Whiskey,300.85,24,4,18,1,0,private_event,0.12,11,7220.38
+2025-06-25,The Mayflower DC,Gh Mumm Grand Cordon,Champagne,188.9,44,2,20,0,0,regular,0.61,6,8311.71
+2025-12-16,The Mayflower DC,Remy Martin 1738,Cognac,508.43,10,1,1,0,0,regular,0.62,12,5084.3
+2025-07-03,Twelve After Twelve,Jack Daniels Jack Honey Available,Whiskey,301.11,24,3,20,0,0,regular,0.74,7,7226.66
+2025-06-29,NYX Rooftop Lounge,Don Julio Reposado ,Tequila,412.82,26,6,21,1,0,DJ,0.79,6,10733.32
+2025-10-15,NYX Rooftop Lounge,Bulleit Rye,Whiskey & Bourbon,337.72,25,2,0,0,0,concert,0.57,10,8442.93
+2025-11-14,The Mayflower DC,Clase Azul Ultra,Tequila,4548.75,0,4,2,1,0,regular,0.42,11,0.0
+2025-12-08,Twelve After Twelve,818 Reposado,Tequila,423.01,15,0,20,0,0,regular,0.69,12,6345.17
+2025-07-15,The Mayflower DC,Ciroc & Flavors,Vodka,319.43,23,1,0,0,0,regular,0.18,7,7346.94
+2025-12-22,The Mayflower DC,Dom Perignon Magnum Rose,Champagne,3917.81,0,0,1,0,1,holiday,0.93,12,0.0
+2025-11-23,Twelve After Twelve,Bacardi,Rum,297.18,25,6,18,1,0,regular,0.28,11,7429.51
+2025-07-30,NYX Rooftop Lounge,Belvedere,Vodka,276.35,29,2,20,0,0,concert,0.31,7,8014.23
+2025-08-22,Twelve After Twelve,Captain Morgan,Rum,313.57,79,4,2,1,0,DJ,0.86,8,24772.12
+2025-11-10,The Mayflower DC,Bombay Sapphire,Gin,372.32,20,0,1,0,0,regular,0.4,11,7446.31
+2025-10-12,The Mayflower DC,Ace of Spades Rose  ,Champagne,1580.29,2,6,18,1,0,regular,0.31,10,3160.58
+2025-09-20,NYX Rooftop Lounge,Tito's,Vodka,399.46,52,5,0,1,0,concert,0.67,9,20771.96
+2025-07-09,The Mayflower DC,Bombay Sapphire,Gin,361.39,24,2,21,0,0,regular,0.16,7,8673.32
+2025-07-18,Twelve After Twelve,Belaire Rose,Champagne,192.65,172,4,1,1,0,regular,0.15,7,33135.53
+2025-09-24,NYX Rooftop Lounge,Moët Ice,Champagne,275.36,38,2,22,0,0,concert,0.58,9,10463.54
+2025-11-04,Twelve After Twelve,"Casamigos Blanco
+",Tequila,419.11,24,1,2,0,0,concert,0.51,11,10058.57
+2025-07-26,NYX Rooftop Lounge,Komos Anejo Reserva,Tequila,893.42,14,5,1,1,0,regular,0.87,7,12507.95
+2025-07-16,The Mayflower DC,Moet & Chandon Ice,Champagne,297.62,31,2,22,0,0,regular,0.8,7,9226.25
+2025-10-31,The Mayflower DC,Ketel One,Vodka,315.96,29,4,18,1,0,DJ,0.55,10,9162.79
+2025-09-27,NYX Rooftop Lounge,Komos Anejo Cristalino,Tequila,817.79,13,5,2,1,0,regular,0.86,9,10631.32
+2025-08-30,NYX Rooftop Lounge,Maker's Mark,Whiskey & Bourbon,304.64,88,5,21,1,0,DJ,0.43,8,26808.61
+2025-10-22,The Mayflower DC,Jefferson's,Whiskey,333.88,21,2,0,0,0,regular,0.41,10,7011.47
+2025-07-22,The Mayflower DC,Remy Martin 1738,Cognac,552.32,8,1,20,0,0,regular,0.8,7,4418.54
+2025-08-29,The Mayflower DC,Belvedere 10,Vodka,794.94,10,4,19,1,0,regular,0.23,8,7949.39
+2025-09-13,NYX Rooftop Lounge,D'USSÉ VSOP,Cognac,411.77,41,5,1,1,0,regular,1.0,9,16882.58
+2025-09-15,Twelve After Twelve,Ace of Spades,Champagne,994.4,3,0,21,0,0,regular,0.93,9,2983.21
+2025-07-28,Twelve After Twelve,Titos,Vodka,265.77,26,0,22,0,0,regular,0.97,7,6910.11
+2025-11-13,NYX Rooftop Lounge,Ace of Spades,Champagne,1034.2,3,3,23,0,0,regular,0.91,11,3102.59
+2025-08-06,Twelve After Twelve,Dom Perignon Magnum,Champagne,2402.9,1,2,19,0,0,regular,0.98,8,2402.9
+2025-10-20,NYX Rooftop Lounge,Komos Anejo Cristalino,Tequila,853.61,5,0,1,0,0,regular,0.67,10,4268.03
+2025-10-01,NYX Rooftop Lounge,Dom Pérignon Luminous,Champagne,738.01,6,2,0,0,0,DJ,0.5,10,4428.09
+2025-09-19,The Mayflower DC,Don Julio 1942,Tequila,977.58,7,4,22,1,0,private_event,0.56,9,6843.05
+2025-12-21,The Mayflower DC,Woodford Reserve,Whiskey,427.14,28,6,1,1,0,DJ,0.92,12,11959.97
+2025-08-07,The Mayflower DC,Patron El Alto,Tequila,972.82,3,3,19,0,0,regular,0.23,8,2918.46
+2025-09-25,NYX Rooftop Lounge,Don Julio Blanco,Tequila,398.7,17,3,22,0,0,regular,0.18,9,6777.95
+2025-10-22,The Mayflower DC,Basil Hayden's,Whiskey,364.25,12,2,2,0,0,regular,0.79,10,4371.06
+2025-07-20,Twelve After Twelve,Tanqueray,Gin,237.2,105,6,0,1,0,DJ,0.11,7,24905.64
+2025-11-03,Twelve After Twelve,D'ussé V.S.O.P.,Cognac,372.28,10,0,20,0,0,regular,0.35,11,3722.84
+2025-09-27,The Mayflower DC,Don Julio Blanco,Tequila,354.55,36,5,19,1,1,holiday,0.94,9,12763.96
+2025-07-25,Twelve After Twelve,Chivas Regal,Scotch,318.37,68,4,2,1,0,regular,0.28,7,21648.9
+2025-07-12,The Mayflower DC,Clase Azul Ultra,Tequila,5295.81,1,5,1,1,0,regular,0.8,7,5295.81
+2025-08-28,Twelve After Twelve,D'ussé V.S.O.P.,Cognac,422.85,18,3,22,0,0,regular,0.12,8,7611.32
+2025-07-27,Twelve After Twelve,Casamigos Reposado,Tequila,475.14,24,6,1,1,0,regular,0.25,7,11403.28
+2025-09-17,Twelve After Twelve,Casamigos Reposado,Tequila,461.5,12,2,22,0,0,regular,0.76,9,5538.01
+2025-07-26,NYX Rooftop Lounge,Chivas,Scotch,385.08,57,5,2,1,0,concert,0.62,7,21949.54
+2025-09-26,The Mayflower DC,Johnnie Walker Blue,Scotch,770.86,8,4,19,1,0,regular,0.48,9,6166.86
+2025-08-24,NYX Rooftop Lounge,Casamigos Blanco,Tequila,402.27,35,6,1,1,0,regular,0.61,8,14079.35
+2025-12-22,NYX Rooftop Lounge,Ace of Spades,Champagne,1040.87,5,0,0,0,0,DJ,0.97,12,5204.37
+2025-11-19,NYX Rooftop Lounge,Captain Morgan,Rum,307.05,18,2,19,0,0,regular,0.42,11,5526.99
+2025-09-02,Twelve After Twelve,Hennessy V.S.,Cognac,460.88,14,1,23,0,0,DJ,0.46,9,6452.37
+2025-09-28,The Mayflower DC,Casamigos Blanco,Tequila,371.21,18,6,18,1,0,regular,0.53,9,6681.83
+2025-12-15,NYX Rooftop Lounge,Don Julio 1942 Magnum,Tequila,1959.65,1,0,1,0,0,regular,0.64,12,1959.65
+2025-10-26,Twelve After Twelve,"Casamigos Blanco
+",Tequila,404.8,30,6,21,1,0,concert,0.2,10,12143.88
+2025-12-17,NYX Rooftop Lounge,Chivas,Scotch,326.62,29,2,1,0,0,regular,0.2,12,9471.94
+2025-09-20,The Mayflower DC,Ketel One,Vodka,390.9,62,5,1,1,0,DJ,0.31,9,24235.72
+2025-07-29,Twelve After Twelve,Veuve Clicquot Yellow Label Magnum ,Champagne,615.89,9,1,20,0,0,regular,0.26,7,5542.99
+2025-06-30,The Mayflower DC,Del Maguey Vida Mezcal,Tequila,347.34,14,0,23,0,0,regular,0.9,6,4862.74
+2025-12-10,NYX Rooftop Lounge,Crown Royal,Whiskey & Bourbon,360.54,25,2,22,0,0,DJ,0.23,12,9013.53
+2025-10-11,The Mayflower DC,Veuve Clicquot Yellow Label,Champagne,350.36,56,5,20,1,0,regular,0.15,10,19619.97
+2025-10-07,Twelve After Twelve,Jack Daniels Jack Honey Available,Whiskey,325.14,23,1,19,0,0,DJ,0.25,10,7478.17
+2025-12-08,The Mayflower DC,Dom Perignon Magnum Rose,Champagne,3687.1,0,0,21,0,0,regular,0.24,12,0.0
+2025-10-02,NYX Rooftop Lounge,Bulleit Rye,Whiskey & Bourbon,317.0,17,3,21,0,0,regular,0.51,10,5389.04
+2025-07-09,The Mayflower DC,Dom Perignon,Champagne,835.51,3,2,23,0,0,private_event,0.39,7,2506.54
+2025-07-17,Twelve After Twelve,Hendricks,Gin,257.39,41,3,20,0,0,concert,0.92,7,10553.05
+2025-12-10,NYX Rooftop Lounge,Kettle One,Vodka,270.73,39,2,2,0,0,regular,0.95,12,10558.33
+2025-07-22,NYX Rooftop Lounge,Casamigos Blanco,Tequila,461.02,18,1,20,0,0,DJ,0.21,7,8298.31
+2025-07-09,Twelve After Twelve,Baileys,Cordials,218.79,30,2,21,0,0,regular,0.14,7,6563.81
+2025-08-16,The Mayflower DC,Dom Perignon Rose,Champagne,1352.28,6,5,2,1,0,regular,0.56,8,8113.71
+2025-07-19,NYX Rooftop Lounge,Bacardi,Rum,275.09,99,5,2,1,0,DJ,0.34,7,27233.87
+2025-11-07,Twelve After Twelve,Remy Martin 1738,Cognac,395.78,59,4,1,1,1,holiday,0.61,11,23351.02
+2025-09-18,NYX Rooftop Lounge,Komos Anejo Cristalino,Tequila,873.26,3,3,19,0,0,regular,0.93,9,2619.79
+2025-10-14,The Mayflower DC,Blantons,Whiskey,547.93,6,1,23,0,0,regular,0.64,10,3287.59
+2025-08-22,NYX Rooftop Lounge,Belaire,Champagne,281.18,62,4,18,1,0,regular,0.27,8,17433.3
+2025-11-03,Twelve After Twelve,Titos,Vodka,337.0,29,0,23,0,0,regular,0.55,11,9772.89
+2025-11-10,The Mayflower DC,Don Julio Blanco,Tequila,352.88,15,0,0,0,0,regular,0.8,11,5293.23
+2025-07-12,The Mayflower DC,Moet & Chandon Nectar Imperial,Champagne,313.22,44,5,1,1,0,regular,0.92,7,13781.58
+2025-09-05,The Mayflower DC,Grey Goose,Vodka,424.26,32,4,21,1,0,regular,0.91,9,13576.28
+2025-09-10,The Mayflower DC,Moet & Chandon Nectar Imperial,Champagne,396.06,23,2,22,0,0,regular,0.7,9,9109.47
+2025-11-16,Twelve After Twelve,Bacardi,Rum,272.71,48,6,2,1,0,regular,0.2,11,13090.3
+2025-08-18,Twelve After Twelve,Veuve Clicquot Yellow Label Magnum ,Champagne,626.74,8,0,19,0,1,holiday,0.34,8,5013.89
+2025-11-29,Twelve After Twelve,Fireball,Cordials,270.31,71,5,0,1,0,regular,0.71,11,19192.25
+2025-07-16,Twelve After Twelve,Crown Royal Crown Apple Available,Whiskey,260.95,47,2,1,0,0,DJ,0.44,7,12264.63
+2025-06-29,NYX Rooftop Lounge,Johnnie Walker Black,Scotch,431.17,34,6,0,1,0,regular,0.93,6,14659.76
+2025-09-25,NYX Rooftop Lounge,Crown Apple,Whiskey & Bourbon,372.22,35,3,2,0,0,concert,0.16,9,13027.56
+2025-11-06,NYX Rooftop Lounge,Komos Repo Rosa,Tequila,735.75,7,3,22,0,0,concert,0.13,11,5150.28
+2025-09-06,Twelve After Twelve,Don Julio Blanco,Tequila,304.66,85,5,2,1,0,concert,0.41,9,25896.38
+2025-07-31,The Mayflower DC,Patron El Alto,Tequila,1022.73,4,3,1,0,0,regular,0.42,7,4090.92
+2025-07-14,The Mayflower DC,Makers Mark,Whiskey,363.43,13,0,18,0,0,DJ,0.22,7,4724.61
+2025-08-02,NYX Rooftop Lounge,Captain Morgan,Rum,273.16,83,5,1,1,0,regular,0.41,8,22672.14
+2025-11-02,The Mayflower DC,Don Julio 1942 Ultima Reserva,Tequila,1598.4,1,6,19,1,0,regular,0.57,11,1598.4
+2025-10-05,Twelve After Twelve,Southern Comfort,Whiskey,214.54,65,6,2,1,0,regular,0.49,10,13945.4
+2025-08-04,NYX Rooftop Lounge,Dom Pérignon Luminous,Champagne,795.22,7,0,22,0,0,concert,0.72,8,5566.51
+2025-10-31,The Mayflower DC,Del Maguey Vida Mezcal,Tequila,397.18,28,4,19,1,0,DJ,0.3,10,11121.12
+2025-07-20,Twelve After Twelve,Captain Morgan,Rum,312.2,56,6,2,1,0,regular,0.58,7,17482.93
+2025-07-06,NYX Rooftop Lounge,Captain Morgan,Rum,297.16,43,6,18,1,0,regular,0.25,7,12778.01
+2025-11-29,NYX Rooftop Lounge,Captain Morgan,Rum,267.59,25,5,18,1,0,private_event,0.73,11,6689.69
+2025-07-04,The Mayflower DC,D'USSE,Cognac,446.36,60,4,1,1,0,DJ,0.29,7,26781.55
+2025-12-15,NYX Rooftop Lounge,Moët Ice,Champagne,273.69,40,0,20,0,0,DJ,0.62,12,10947.47
+2025-10-20,The Mayflower DC,Jack Daniel's,Whiskey,382.29,16,0,23,0,0,regular,0.26,10,6116.6
+2025-12-22,NYX Rooftop Lounge,Johnnie Walker Blue,Scotch,655.49,7,0,0,0,0,DJ,0.4,12,4588.4
+2025-09-19,The Mayflower DC,Casamigos Cristalino,Tequila,487.03,23,4,1,1,0,regular,0.9,9,11201.58
+2025-10-15,Twelve After Twelve,Ciroc + Flavors,Vodka,337.73,36,2,2,0,0,DJ,0.95,10,12158.44
+2025-12-02,The Mayflower DC,Gh Mumm Grand Cordon,Champagne,225.35,66,1,21,0,0,DJ,0.17,12,14872.81
+2025-12-08,Twelve After Twelve,Tanqueray,Gin,270.65,55,0,2,0,0,regular,0.7,12,14885.61
+2025-12-17,The Mayflower DC,Glenlivet 18,Scotch,592.92,8,2,0,0,0,regular,0.48,12,4743.33
+2025-08-28,NYX Rooftop Lounge,Bacardi,Rum,312.58,35,3,0,0,0,DJ,0.92,8,10940.22
+2025-11-24,The Mayflower DC,Glenlivet 18,Scotch,615.84,8,0,22,0,0,concert,0.33,11,4926.74
+2025-09-07,The Mayflower DC,Chivas Regal,Scotch,305.61,61,6,1,1,0,concert,0.66,9,18642.47
+2025-07-06,NYX Rooftop Lounge,Grey Goose,Vodka,353.15,73,6,23,1,0,concert,0.32,7,25780.28
+2025-07-25,The Mayflower DC,Dom Perignon Rose,Champagne,1110.03,7,4,2,1,0,regular,0.45,7,7770.18
+2025-12-08,Twelve After Twelve,Dom Perignon Rose,Champagne,1221.68,2,0,21,0,0,regular,0.6,12,2443.36
+2025-12-16,Twelve After Twelve,Remy Martin 1738,Cognac,475.36,16,1,0,0,1,holiday,0.56,12,7605.75
+2025-08-26,The Mayflower DC,Del Maguey Vida Mezcal,Tequila,372.3,22,1,0,0,0,regular,0.34,8,8190.58
+2025-08-12,Twelve After Twelve,Cincoro Blanco,Tequila,691.2,6,1,0,0,0,regular,0.76,8,4147.22
+2025-07-31,The Mayflower DC,Belvedere,Vodka,423.34,24,3,1,0,0,DJ,0.8,7,10160.05
+2025-07-11,Twelve After Twelve,Jack Daniels Jack Honey Available,Whiskey,316.32,46,4,18,1,0,regular,0.68,7,14550.77
+2025-12-19,Twelve After Twelve,Moet & Chandon Nectar Rose Magnum,Champagne,680.07,11,4,18,1,0,regular,0.76,12,7480.72
+2025-08-18,The Mayflower DC,Ron Zaccapa 23,Rum,322.44,23,0,0,0,0,concert,0.59,8,7416.02
+2025-08-02,The Mayflower DC,Talisker,Scotch,418.24,57,5,1,1,0,DJ,0.37,8,23839.9
+2025-12-11,Twelve After Twelve,Don Julio Blanco,Tequila,319.36,21,3,0,0,0,regular,0.91,12,6706.53

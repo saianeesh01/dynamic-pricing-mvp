@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Pricing Engine - Professional Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                    <h1>Dynamic Pricing Engine</h1>
+                </div>
+                <div class="header-actions">
+                    <div class="status-badge" id="statusBadge">
+                        <span class="status-dot"></span>
+                        <span>Phase 1 Active</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav class="nav-menu">
+                    <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#recommendations" class="nav-item" data-section="recommendations">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                        <span>Recommendations</span>
+                    </a>
+                    <a href="#market-analysis" class="nav-item" data-section="market-analysis">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="20" x2="12" y2="10"></line>
+                            <line x1="18" y1="20" x2="18" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="16"></line>
+                        </svg>
+                        <span>Market Analysis</span>
+                    </a>
+                    <a href="#demand-forecast" class="nav-item" data-section="demand-forecast">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        <span>Demand Forecast</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="section active">
+                    <div class="section-header">
+                        <h2>Dashboard Overview</h2>
+                        <p class="section-subtitle">Real-time pricing insights and recommendations</p>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="totalProducts">174</div>
+                                <div class="stat-label">Total Products</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="avgRevenueImpact">+4.2%</div>
+                                <div class="stat-label">Avg Revenue Impact</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon purple">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="optimizationRate">87%</div>
+                                <div class="stat-label">Optimization Rate</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon orange">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="activeVenues">3</div>
+                                <div class="stat-label">Active Venues</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <h3>Quick Actions</h3>
+                        <div class="actions-grid">
+                            <button class="action-btn" onclick="loadRecommendations()">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                </svg>
+                                Generate Recommendations
+                            </button>
+                            <button class="action-btn" onclick="showSection('market-analysis')">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="20" x2="12" y2="10"></line>
+                                    <line x1="18" y1="20" x2="18" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="16"></line>
+                                </svg>
+                                View Market Analysis
+                            </button>
+                            <button class="action-btn" onclick="showSection('demand-forecast')">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>
+                                Demand Forecast
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recommendations Section -->
+                <section id="recommendations" class="section">
+                    <div class="section-header">
+                        <h2>Price Recommendations</h2>
+                        <p class="section-subtitle">AI-powered pricing recommendations for maximum revenue</p>
+                    </div>
+
+                    <!-- Filters -->
+                    <div class="filters-card">
+                        <div class="filter-group">
+                            <label>Venue</label>
+                            <select id="venueFilter" class="filter-select">
+                                <option value="">All Venues</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Product Type</label>
+                            <select id="typeFilter" class="filter-select">
+                                <option value="">All Types</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Event Type</label>
+                            <select id="eventFilter" class="filter-select">
+                                <option value="regular">Regular</option>
+                                <option value="DJ">DJ Event</option>
+                                <option value="holiday">Holiday</option>
+                                <option value="concert">Concert</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Time</label>
+                            <input type="time" id="timeFilter" class="filter-input" value="22:00">
+                        </div>
+                        <button class="btn-primary" onclick="loadRecommendations()">Apply Filters</button>
+                    </div>
+
+                    <!-- Recommendations Table -->
+                    <div class="table-card">
+                        <div class="table-header">
+                            <h3>Recommendations</h3>
+                            <div class="table-actions">
+                                <button class="btn-secondary" onclick="exportRecommendations()">Export CSV</button>
+                            </div>
+                        </div>
+                        <div class="table-container">
+                            <table id="recommendationsTable" class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Venue</th>
+                                        <th>Product</th>
+                                        <th>Type</th>
+                                        <th>Current Price</th>
+                                        <th>Recommended</th>
+                                        <th>Change</th>
+                                        <th>Revenue Impact</th>
+                                        <th>Method</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recommendationsBody">
+                                    <tr>
+                                        <td colspan="9" class="loading">Loading recommendations...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Market Analysis Section -->
+                <section id="market-analysis" class="section">
+                    <div class="section-header">
+                        <h2>Market Analysis</h2>
+                        <p class="section-subtitle">Venue positioning and market benchmarks</p>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <h3>Venue Premium Index (VPI)</h3>
+                            <canvas id="vpiChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Price Distribution by Type</h3>
+                            <canvas id="priceDistributionChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Demand Forecast Section -->
+                <section id="demand-forecast" class="section">
+                    <div class="section-header">
+                        <h2>Demand Forecast</h2>
+                        <p class="section-subtitle">Predict demand at different price points</p>
+                    </div>
+
+                    <div class="forecast-controls">
+                        <div class="filter-group">
+                            <label>Venue</label>
+                            <select id="forecastVenue" class="filter-select"></select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Product</label>
+                            <select id="forecastProduct" class="filter-select"></select>
+                        </div>
+                        <button class="btn-primary" onclick="loadDemandForecast()">Generate Forecast</button>
+                    </div>
+
+                    <div class="chart-card">
+                        <h3>Price vs Demand vs Revenue</h3>
+                        <canvas id="demandChart"></canvas>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
+
